@@ -1,5 +1,4 @@
 <?php
-
 /*
 Plugin Name: Flexslider wp - plugin
 Plugin URI:
@@ -137,3 +136,21 @@ class Slider extends WP_Widget
 add_action( 'widgets_init', function(){
     register_widget( 'Slider' );
 });
+add_action('admin_menu', 'fs_plugin_setup_menu');
+
+function fs_plugin_setup_menu(){
+	add_menu_page( 'Slider Plugin Page', 'Slider featured image', 'manage_options', 'slider-plugin', 'slider_init' );
+}
+
+function slider_init()
+{
+	?>
+
+	    <h4>For add the plugin on your post or page use shortcode
+		    <input type="text" value="[f_slider]"> </input>
+		    <input type="button" value="Copy to clipboard"> </input>
+	    </h4>
+	    <p>And  add slider to sidebar use Slider widget </p>
+
+   <?php
+}
